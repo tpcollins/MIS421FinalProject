@@ -23,7 +23,8 @@ namespace MIS421FinalProject.Views
         // GET: MyExercises
         public async Task<IActionResult> Index()
         {
-            return View(await _context.MyExercise.ToListAsync());
+            var applicationDbContext = _context.MyExercise.Include(m => m.Exercise);
+            return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: MyExercises/Details/5
@@ -35,6 +36,7 @@ namespace MIS421FinalProject.Views
             }
 
             var myExercise = await _context.MyExercise
+                .Include(m => m.Exercise)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (myExercise == null)
             {
@@ -47,6 +49,7 @@ namespace MIS421FinalProject.Views
         // GET: MyExercises/Create
         public IActionResult Create()
         {
+            ViewData["ExerciseId"] = new SelectList(_context.Exercise, "Id", "Id");
             return View();
         }
 
@@ -55,7 +58,7 @@ namespace MIS421FinalProject.Views
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Time,Username")] MyExercise myExercise)
+        public async Task<IActionResult> Create([Bind("Id,Time,ExerciseId,Username")] MyExercise myExercise)
         {
             if (ModelState.IsValid)
             {
@@ -63,6 +66,7 @@ namespace MIS421FinalProject.Views
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ExerciseId"] = new SelectList(_context.Exercise, "Id", "Id", myExercise.ExerciseId);
             return View(myExercise);
         }
 
@@ -79,6 +83,7 @@ namespace MIS421FinalProject.Views
             {
                 return NotFound();
             }
+            ViewData["ExerciseId"] = new SelectList(_context.Exercise, "Id", "Id", myExercise.ExerciseId);
             return View(myExercise);
         }
 
@@ -87,7 +92,7 @@ namespace MIS421FinalProject.Views
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Time,Username")] MyExercise myExercise)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Time,ExerciseId,Username")] MyExercise myExercise)
         {
             if (id != myExercise.Id)
             {
@@ -114,6 +119,7 @@ namespace MIS421FinalProject.Views
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ExerciseId"] = new SelectList(_context.Exercise, "Id", "Id", myExercise.ExerciseId);
             return View(myExercise);
         }
 
@@ -126,6 +132,7 @@ namespace MIS421FinalProject.Views
             }
 
             var myExercise = await _context.MyExercise
+                .Include(m => m.Exercise)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (myExercise == null)
             {
