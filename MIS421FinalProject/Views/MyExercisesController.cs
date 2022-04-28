@@ -52,6 +52,7 @@ namespace MIS421FinalProject.Views
         public IActionResult Create()
         {
             ViewData["ExerciseId"] = new SelectList(_context.Exercise, "Id", "Id");
+            ViewBag.ExerciseName = new SelectList(_context.Exercise, "Id", "Name");
             return View();
         }
 
