@@ -1,8 +1,9 @@
-﻿#nullable disable
+#nullable disable
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -21,6 +22,7 @@ namespace MIS421FinalProject.Views
         }
 
         // GET: MyFoods
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.MyFood.Include(m => m.Food);
@@ -45,11 +47,12 @@ namespace MIS421FinalProject.Views
 
             return View(myFood);
         }
-
+        [Authorize]
         // GET: MyFoods/Create
         public IActionResult Create()
         {
             ViewData["FoodId"] = new SelectList(_context.Food, "Id", "Id");
+            ViewBag.FoodName = new SelectList(_context.Food, "Id", "Name");
             return View();
         }
 

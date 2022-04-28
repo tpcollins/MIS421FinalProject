@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MIS421FinalProject.Models.MyExercise>
+@model IEnumerable<MIS421FinalProject.Models.MyExercise>
 
 @{
     ViewData["Title"] = "Index";
@@ -31,7 +31,7 @@
                 @Html.DisplayFor(modelItem => item.Time)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Exercise.Id)
+                @Html.DisplayFor(modelItem => item.Exercise.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Username)
