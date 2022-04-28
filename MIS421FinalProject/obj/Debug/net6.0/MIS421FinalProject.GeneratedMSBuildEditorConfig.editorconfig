@@ -19,12 +19,92 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/trist/OneDrive/Desktop/MIS 421/Final Project (New)/MIS421FinalProject/MIS421FinalProject/Views/Exercises/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhlcmNpc2VzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/trist/OneDrive/Desktop/MIS 421/Final Project (New)/MIS421FinalProject/MIS421FinalProject/Views/Exercises/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhlcmNpc2VzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/trist/OneDrive/Desktop/MIS 421/Final Project (New)/MIS421FinalProject/MIS421FinalProject/Views/Exercises/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhlcmNpc2VzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/trist/OneDrive/Desktop/MIS 421/Final Project (New)/MIS421FinalProject/MIS421FinalProject/Views/Exercises/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhlcmNpc2VzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/trist/OneDrive/Desktop/MIS 421/Final Project (New)/MIS421FinalProject/MIS421FinalProject/Views/Exercises/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhlcmNpc2VzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/trist/OneDrive/Desktop/MIS 421/Final Project (New)/MIS421FinalProject/MIS421FinalProject/Views/Foods/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9vZHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/trist/OneDrive/Desktop/MIS 421/Final Project (New)/MIS421FinalProject/MIS421FinalProject/Views/Foods/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9vZHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/trist/OneDrive/Desktop/MIS 421/Final Project (New)/MIS421FinalProject/MIS421FinalProject/Views/Foods/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9vZHNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/trist/OneDrive/Desktop/MIS 421/Final Project (New)/MIS421FinalProject/MIS421FinalProject/Views/Foods/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9vZHNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/trist/OneDrive/Desktop/MIS 421/Final Project (New)/MIS421FinalProject/MIS421FinalProject/Views/Foods/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9vZHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/trist/OneDrive/Desktop/MIS 421/Final Project (New)/MIS421FinalProject/MIS421FinalProject/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/trist/OneDrive/Desktop/MIS 421/Final Project (New)/MIS421FinalProject/MIS421FinalProject/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/trist/OneDrive/Desktop/MIS 421/Final Project (New)/MIS421FinalProject/MIS421FinalProject/Views/MyExercises/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXlFeGVyY2lzZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/trist/OneDrive/Desktop/MIS 421/Final Project (New)/MIS421FinalProject/MIS421FinalProject/Views/MyExercises/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXlFeGVyY2lzZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/trist/OneDrive/Desktop/MIS 421/Final Project (New)/MIS421FinalProject/MIS421FinalProject/Views/MyExercises/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXlFeGVyY2lzZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/trist/OneDrive/Desktop/MIS 421/Final Project (New)/MIS421FinalProject/MIS421FinalProject/Views/MyExercises/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXlFeGVyY2lzZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/trist/OneDrive/Desktop/MIS 421/Final Project (New)/MIS421FinalProject/MIS421FinalProject/Views/MyExercises/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXlFeGVyY2lzZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/trist/OneDrive/Desktop/MIS 421/Final Project (New)/MIS421FinalProject/MIS421FinalProject/Views/MyFoods/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXlGb29kc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/trist/OneDrive/Desktop/MIS 421/Final Project (New)/MIS421FinalProject/MIS421FinalProject/Views/MyFoods/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXlGb29kc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/trist/OneDrive/Desktop/MIS 421/Final Project (New)/MIS421FinalProject/MIS421FinalProject/Views/MyFoods/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXlGb29kc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/trist/OneDrive/Desktop/MIS 421/Final Project (New)/MIS421FinalProject/MIS421FinalProject/Views/MyFoods/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXlGb29kc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/trist/OneDrive/Desktop/MIS 421/Final Project (New)/MIS421FinalProject/MIS421FinalProject/Views/MyFoods/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTXlGb29kc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/trist/OneDrive/Desktop/MIS 421/Final Project (New)/MIS421FinalProject/MIS421FinalProject/Views/Shared/Error.cshtml]

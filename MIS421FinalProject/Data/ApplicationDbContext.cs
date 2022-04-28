@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using MIS421FinalProject.Models;
 
 namespace MIS421FinalProject.Data
 {
@@ -9,5 +10,9 @@ namespace MIS421FinalProject.Data
             : base(options)
         {
         }
+        public DbSet<MIS421FinalProject.Models.Exercise> Exercise { get; set; }
+        public DbSet<MIS421FinalProject.Models.Food> Food { get; set; }
+        public DbSet<MIS421FinalProject.Models.MyExercise> MyExercise { get; set; }
+        public DbSet<MIS421FinalProject.Models.MyFood> MyFood { get; set; }
     }
 }
