@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MIS421FinalProject.Models
 {
@@ -8,7 +9,10 @@ namespace MIS421FinalProject.Models
         public int Id { get; set; }
         public DateTime Time { get; set; }
 
-        public Food Food { get; set; }
+        [Required]
+        public int FoodId { get; set; }
+        [ForeignKey("FoodId")]
+        public Food? Food { get; set; }
         public string Username { get; set; }
     }
 }

@@ -16,6 +16,9 @@
                 @Html.DisplayNameFor(model => model.Time)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Exercise)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Username)
             </th>
             <th></th>
@@ -26,6 +29,9 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Exercise.Id)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Username)

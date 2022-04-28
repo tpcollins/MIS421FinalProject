@@ -23,7 +23,8 @@ namespace MIS421FinalProject.Views
         // GET: MyFoods
         public async Task<IActionResult> Index()
         {
-            return View(await _context.MyFood.ToListAsync());
+            var applicationDbContext = _context.MyFood.Include(m => m.Food);
+            return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: MyFoods/Details/5
@@ -35,6 +36,7 @@ namespace MIS421FinalProject.Views
             }
 
             var myFood = await _context.MyFood
+                .Include(m => m.Food)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (myFood == null)
             {
@@ -47,6 +49,7 @@ namespace MIS421FinalProject.Views
         // GET: MyFoods/Create
         public IActionResult Create()
         {
+            ViewData["FoodId"] = new SelectList(_context.Food, "Id", "Id");
             return View();
         }
 
@@ -55,7 +58,7 @@ namespace MIS421FinalProject.Views
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Time,Username")] MyFood myFood)
+        public async Task<IActionResult> Create([Bind("Id,Time,FoodId,Username")] MyFood myFood)
         {
             if (ModelState.IsValid)
             {
@@ -63,6 +66,7 @@ namespace MIS421FinalProject.Views
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["FoodId"] = new SelectList(_context.Food, "Id", "Id", myFood.FoodId);
             return View(myFood);
         }
 
@@ -79,6 +83,7 @@ namespace MIS421FinalProject.Views
             {
                 return NotFound();
             }
+            ViewData["FoodId"] = new SelectList(_context.Food, "Id", "Id", myFood.FoodId);
             return View(myFood);
         }
 
@@ -87,7 +92,7 @@ namespace MIS421FinalProject.Views
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Time,Username")] MyFood myFood)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Time,FoodId,Username")] MyFood myFood)
         {
             if (id != myFood.Id)
             {
@@ -114,6 +119,7 @@ namespace MIS421FinalProject.Views
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["FoodId"] = new SelectList(_context.Food, "Id", "Id", myFood.FoodId);
             return View(myFood);
         }
 
@@ -126,6 +132,7 @@ namespace MIS421FinalProject.Views
             }
 
             var myFood = await _context.MyFood
+                .Include(m => m.Food)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (myFood == null)
             {

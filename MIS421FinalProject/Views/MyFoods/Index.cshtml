@@ -16,6 +16,9 @@
                 @Html.DisplayNameFor(model => model.Time)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Food)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Username)
             </th>
             <th></th>
@@ -26,6 +29,9 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Food.Id)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Username)
