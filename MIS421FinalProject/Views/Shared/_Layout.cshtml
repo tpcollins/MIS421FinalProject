@@ -18,7 +18,7 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="/assets/css/styles.css" rel="stylesheet" />
     </head>
-    <body id="page-top" class="background">
+    <body id="page-top" class="background" onload="limitTableData()">
 
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
@@ -119,6 +119,31 @@ _█░░░░░░░░░░█______█_███__█_____███_█_
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        <script>
+            function limitTableData() {
+                 var table = document.getElementById('mainTable');
+                 
+                 var sdRawVal = document.getElementById('dateSelector').value;
+                 var selectedDate = (+sdRawVal.substring(5,7)) + "/" + sdRawVal.substring(8,10) + "/" + sdRawVal.substring(0,4)
+                 console.log(sdRawVal)
+                 console.log(selectedDate)
+                 //Start at 1 to skip header
+                 for (var i = 1, row; row = table.rows[i]; i++){
+                     var Date = row.children[0].innerText.trim().substring(0,9)
+                     //console.log(row.children[0].innerText)
+                     //console.log('Selected: ' + selectedDate)
+                     console.log('Row Date: ' + Date)
+                     //console.log(row)
+                     if(Date != selectedDate){
+                          console.log(Date + ' did not match ' + selectedDate)
+                         table.rows[i].hidden = true;
+                     } else  {
+                         table.rows[i].hidden = false;
+                     }
+                 }
+            }
+
+        </script>
         @await RenderSectionAsync("Scripts", required: false)
     </body>
 </html>
