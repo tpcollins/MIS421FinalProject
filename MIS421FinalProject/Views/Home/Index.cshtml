@@ -8,7 +8,7 @@
 <div class="text-center">
     @if (User.Identity.IsAuthenticated)
     {
-        //<h1 class="display-4">Welcome</h1>
+        <h3 class="display-4">Welcome @User.Identity.Name</h3>
         
          int totalCalories = 0;
         foreach(var item in Model)

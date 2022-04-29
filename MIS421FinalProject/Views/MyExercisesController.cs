@@ -25,7 +25,7 @@ namespace MIS421FinalProject.Views
         [Authorize]
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.MyExercise.Include(m => m.Exercise);
+            var applicationDbContext = _context.MyExercise.Where(m => m.Username == User.Identity.Name).Include(m => m.Exercise);
             return View(await applicationDbContext.ToListAsync());
         }
 
