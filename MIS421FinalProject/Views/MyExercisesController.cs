@@ -25,7 +25,7 @@ namespace MIS421FinalProject.Views
         [Authorize]
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.MyExercise.Include(m => m.Exercise);
+            var applicationDbContext = _context.MyExercise.Where(m => m.Username == User.Identity.Name).Include(m => m.Exercise);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -63,6 +63,7 @@ namespace MIS421FinalProject.Views
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Time,ExerciseId,Username")] MyExercise myExercise)
         {
+            myExercise.Username = User.Identity.Name;
             if (ModelState.IsValid)
             {
                 _context.Add(myExercise);

@@ -21,9 +21,9 @@
                 <label asp-for="ExerciseId" class="control-label"></label>
                 <select asp-for="ExerciseId" class ="form-control" asp-items="ViewBag.ExerciseName"></select>
             </div>
-            <div class="form-group">
+            <div class="form-group" hidden=true>
                 <label asp-for="Username" class="control-label"></label>
-                <input asp-for="Username" class="form-control" />
+                <input asp-for="Username" class="form-control" value='placeholder'/>
                 <span asp-validation-for="Username" class="text-danger"></span>
             </div>
             <div class="form-group">

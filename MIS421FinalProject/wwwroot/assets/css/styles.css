@@ -13,10 +13,22 @@
 
 /* Section 1: All styling within section 1 is done by me and not the theme */
 
+    .addbtn {
+        background-color: #4281f5 !important;
+        border-radius: 50% !important;
+    }
     /* Background Color*/
     .background {
-        background-color: black;
+        background-color: white !important;
         /* Shared _layout.cshtml line 19 */
+    }
+
+    .mainNav {
+        background-color: aqua !important;
+    }
+
+    .table {
+        color: black;
     }
 
     #homeText {
@@ -1994,7 +2006,7 @@ progress {
   --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
   width: 100%;
   margin-bottom: 1rem;
-  color: white;
+  color: black;
   vertical-align: top;
   border-color: #dee2e6;
 }
@@ -11365,9 +11377,9 @@ p {
 }
 
 #mainNav {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  background-color: #212529;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: #4281f5;
 }
 #mainNav .navbar-toggler {
   padding: 0.75rem;
@@ -11397,13 +11409,13 @@ p {
 }
 
 @media (min-width: 992px) {
-  #mainNav {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    border: none;
-    background-color: transparent;
-    transition: padding-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out;
-  }
+    #mainNav {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        border: none;
+        background-color: #4281f5;
+        transition: padding-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out;
+    }
   #mainNav .navbar-brand {
     font-size: 1.5em;
     transition: font-size 0.3s ease-in-out;

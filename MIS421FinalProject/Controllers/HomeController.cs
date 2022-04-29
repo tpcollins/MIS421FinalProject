@@ -24,7 +24,7 @@ namespace MIS421FinalProject.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.MyFood.Include(m => m.Food);
+            var applicationDbContext = _context.MyFood.Where(m => m.Username == User.Identity.Name).Include(m => m.Food);
             return View(await applicationDbContext.ToListAsync());
             //return View();
         }

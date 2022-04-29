@@ -25,7 +25,7 @@ namespace MIS421FinalProject.Views
         [Authorize]
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.MyFood.Include(m => m.Food);
+            var applicationDbContext = _context.MyFood.Where(m => m.Username == User.Identity.Name).Include(m => m.Food);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -63,6 +63,7 @@ namespace MIS421FinalProject.Views
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Time,FoodId,Username")] MyFood myFood)
         {
+            myFood.Username = User.Identity.Name;
             if (ModelState.IsValid)
             {
                 _context.Add(myFood);
