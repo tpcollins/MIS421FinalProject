@@ -1,8 +1,56 @@
-﻿@{
+@model IEnumerable<MIS421FinalProject.Models.MyFood>
+@{
     ViewData["Title"] = "Home Page";
 }
+@using Microsoft.AspNetCore.Identity;
+
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    @if (User.Identity.IsAuthenticated)
+    {
+        //<h1 class="display-4">Welcome</h1>
+        
+         int totalCalories = 0;
+        foreach(var item in Model)
+        {
+            totalCalories += item.Food.Calories.GetValueOrDefault();
+        }
+        <h3>Total Calories @totalCalories</h3>
+        <table>
+        <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Food)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Food.Calories)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Time)
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Food.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Food.Calories)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Time)
+            </td>
+        </tr>
+        }
+        </tbody>
+        </table>
+    } else
+    {
+        <h1 class="display-4">Welcome To Swoll Patrol</h1>
+        <h6>a food and exercise tracker made with ASP.NET Core by Hunter, Tristan, and Zach.</h6>
+        <p>Please Login to start tracking Food and Exercises.</p>
+        <img src="https://c.tenor.com/vfWHfKqW_7MAAAAC/flex-larry.gif" />
+    }
 </div>
