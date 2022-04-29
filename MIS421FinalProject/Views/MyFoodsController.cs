@@ -63,6 +63,7 @@ namespace MIS421FinalProject.Views
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Time,FoodId,Username")] MyFood myFood)
         {
+            myFood.Username = User.Identity.Name;
             if (ModelState.IsValid)
             {
                 _context.Add(myFood);

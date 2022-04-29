@@ -4,11 +4,8 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>My Foods</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -22,7 +19,13 @@
                 @Html.DisplayNameFor(model => model.Food.Calories)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Username)
+                @Html.DisplayNameFor(model => model.Food.Protein)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Food.Carbs)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Food.Fat)
             </th>
             <th></th>
         </tr>
@@ -40,10 +43,16 @@
                 @Html.DisplayFor(modelItem => item.Food.Calories)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Username)
+                @Html.DisplayFor(modelItem => item.Food.Protein)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                @Html.DisplayFor(modelItem => item.Food.Carbs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Food.Fat)
+            </td>
+            <td>
+                <!--<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> | -->
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
@@ -51,3 +60,7 @@
 }
     </tbody>
 </table>
+
+<p>
+    <a asp-action="Create" class="btn mx-2 addbtn"><i class="fa fa-plus" color="white"></i></a>
+</p>

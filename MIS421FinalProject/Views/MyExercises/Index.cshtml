@@ -7,7 +7,7 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn mx-2 addbtn"><i class="fa fa-plus" color="white"></i></a>
 </p>
 <table class="table">
     <thead>
@@ -17,9 +17,6 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Exercise)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Username)
             </th>
             <th></th>
         </tr>
@@ -34,10 +31,7 @@
                 @Html.DisplayFor(modelItem => item.Exercise.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Username)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <!--<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> | -->
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
