@@ -12,6 +12,13 @@
  */
 
 /* Section 1: All styling within section 1 is done by me and not the theme */
+.datebtn {
+    background-color: #4281f5 !important;
+}
+
+    .dateContainer {
+        text-align: center !important;
+    }
 
     .addbtn {
         background-color: #4281f5 !important;
