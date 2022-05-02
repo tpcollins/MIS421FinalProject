@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using MIS421FinalProject.Views;
 
 namespace MIS421FinalProject.Controllers
 {
@@ -24,8 +25,10 @@ namespace MIS421FinalProject.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.MyFood.Where(m => m.Username == User.Identity.Name).Include(m => m.Food);
-            return View(await applicationDbContext.ToListAsync());
+            var MyVM = new FoodExerciseVM();
+            MyVM.MyFoods = _context.MyFood.Where(m => m.Username == User.Identity.Name).Include(m => m.Food).ToList();
+            MyVM.MyExercise = _context.MyExercise.Where(m => m.Username == User.Identity.Name).Include(m => m.Exercise).ToList();
+            return View(MyVM);
             //return View();
         }
 

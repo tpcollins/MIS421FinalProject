@@ -12,6 +12,10 @@
  */
 
 /* Section 1: All styling within section 1 is done by me and not the theme */
+    .scroll {
+        overflow: scroll;
+        height: 250px;
+    }
     .row{
         display: flex;
     }
