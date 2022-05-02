@@ -9,43 +9,58 @@
     @if (User.Identity.IsAuthenticated)
     {
         <h3 class="display-4">Welcome @User.Identity.Name</h3>
+        <div class='row'>
+        <div class='column'>
+                @{
+                    int totalProtein = 0;
+                    int totalFats = 0;
+                    int totalCarbs = 0;
+                    int totalCalories = 0;
+                    foreach(var item in Model)
+                    {
+                        if (User.Identity.Name == item.Username)
+                        {
+                            totalCalories += item.Food.Calories.GetValueOrDefault();
+                            totalProtein += item.Food.Protein.GetValueOrDefault();
+                            totalCarbs += item.Food.Carbs.GetValueOrDefault();
+                            totalFats += item.Food.Fat.GetValueOrDefault();
+                        }
+                    }
+        <h3>Food</h3>
+        <div id="piechart" style="width: auto; height: 200px">
+        </div>
+        <h5>Total Calories @totalCalories</h5>
+        <a class="btn btn-dark" href="MyFoods">Click Here to See More</a>
+        }
+        </div>
+        <div class='column'>
+            <h3>Exercises</h3>
+        </div>
+        </div>
+
+<script type='text/javascript'>
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Nutrition', 'Amount'],
+          ['Protein',     @totalProtein],
+          ['Carbs',      @totalCarbs],
+          ['Fats',  @totalFats]
+        ]);
+
+        var options = {
+          title: 'Food Intake'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+</script>
         
-         int totalCalories = 0;
-        foreach(var item in Model)
-        {
-            totalCalories += item.Food.Calories.GetValueOrDefault();
-        }
-        <h3>Total Calories @totalCalories</h3>
-        <table>
-        <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Food)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Food.Calories)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Time)
-            </th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Food.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Food.Calories)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Time)
-            </td>
-        </tr>
-        }
-        </tbody>
-        </table>
     } else
     {
         <h1 class="display-4">Welcome To Swoll Patrol</h1>
