@@ -1,8 +1,19 @@
-@model IEnumerable<MIS421FinalProject.Models.MyFood>
+@model MIS421FinalProject.Views.FoodExerciseVM
 @{
     ViewData["Title"] = "Home Page";
 }
 @using Microsoft.AspNetCore.Identity;
+@{
+    var curDateArray = DateTime.UtcNow.ToString("MM/dd/yyyy").Split('/');
+    String currentDate = int.Parse(curDateArray[0]).ToString() + '/' + int.Parse(curDateArray[1]).ToString() + '/' + int.Parse(curDateArray[2]).ToString();
+
+    string getCleanDate(string date)
+    {
+        var arr = date.Split('/');
+        var retDate = arr[0] + '/' + arr[1] + '/' + arr[2].Substring(0, 4);
+        return retDate;
+    }
+}
 
 
 <div class="text-center">
@@ -16,10 +27,9 @@
                     int totalFats = 0;
                     int totalCarbs = 0;
                     int totalCalories = 0;
-                    foreach(var item in Model)
+                    foreach(var item in Model.MyFoods)
                     {
-                        if (User.Identity.Name == item.Username)
-                        {
+                        if(currentDate == getCleanDate(item.Time.ToString())){
                             totalCalories += item.Food.Calories.GetValueOrDefault();
                             totalProtein += item.Food.Protein.GetValueOrDefault();
                             totalCarbs += item.Food.Carbs.GetValueOrDefault();
@@ -29,12 +39,40 @@
         <h3>Food</h3>
         <div id="piechart" style="width: auto; height: 200px">
         </div>
-        <h5>Total Calories @totalCalories</h5>
-        <a class="btn btn-dark" href="MyFoods">Click Here to See More</a>
+        <h5>Total Calories: @totalCalories</h5>
+        <h5>Total Protein: @totalProtein</h5>
+        <h5>Total Carbs: @totalCarbs</h5>
+        <h5>Total Fats: @totalFats</h5>
+        <a class="btn btn-dark" href="MyFoods" style="margin-top: 30px">Click Here to See More</a>
         }
         </div>
         <div class='column'>
             <h3>Exercises</h3>
+                <table id="dt" style="height: 250px">
+                <thead>
+                    <tr>
+                        <th>Exercise Name:</th>
+                        <th>Exericse Time:</th>
+                    </tr>
+                </thead>
+                <tbody>
+                
+                        @{
+                            foreach(var item in Model.MyExercise)
+                            {
+                                if (currentDate == getCleanDate(item.Time.ToString()))
+                                {
+                                    <tr>
+                                        <td>@item.Exercise.Name</td>
+                                        <td>@item.Time</td>
+                                    </tr>
+                                }
+                            }
+                }
+                
+                </tbody>
+                </table>
+                <a class="btn btn-dark" href="MyExercises">Click Here to See More</a>
         </div>
         </div>
 
@@ -58,6 +96,10 @@
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 
         chart.draw(data, options);
+
+        $(document).ready( function () {
+            $('#dt').DataTable({searching: false, paging: false});
+            } );
       }
 </script>
         
