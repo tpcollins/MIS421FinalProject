@@ -1,4 +1,5 @@
 @using Microsoft.AspNetCore.Identity;
+@using MIS421FinalProject.Data;
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -43,6 +44,14 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="MyExercises" asp-action="">My Exercises</a>
                         </li>
+                        @if(User.IsInRole(SD.Admin)){
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Foods" asp-action="">Add/Edit Foods</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Exercises" asp-action="">Add/Edit Exercises</a>
+                            </li>
+                        }
                     </ul>
                 }
                     <partial class="nav-item" name ="_LoginPartial" />
