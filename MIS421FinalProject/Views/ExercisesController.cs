@@ -55,10 +55,16 @@ namespace MIS421FinalProject.Views
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,ExplanationURL,image,caloriesBurned")] Exercise exercise)
+        public async Task<IActionResult> Create([Bind("Id,Name,ExplanationURL,caloriesBurned")] Exercise exercise, IFormFile image)
         {
             if (ModelState.IsValid)
             {
+                if(image != null && image.Length > 0)
+                {
+                    var memoryStream = new MemoryStream();
+                    await image.CopyToAsync(memoryStream);
+                    exercise.image = memoryStream.ToArray();
+                }
                 _context.Add(exercise);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace MIS421FinalProject.Models
@@ -8,6 +9,11 @@ namespace MIS421FinalProject.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string? ExplanationURL { get; set; }
+
+        [DataType(DataType.Upload)]
+        [DisplayName("Exercise Image")]
         public byte[]? image { get; set; }
+
+        public int caloriesBurned { get; set; }
     }
 }
