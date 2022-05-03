@@ -1,4 +1,4 @@
-﻿#nullable disable
+#nullable disable
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,7 +55,7 @@ namespace MIS421FinalProject.Views
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,ExplanationURL,image")] Exercise exercise)
+        public async Task<IActionResult> Create([Bind("Id,Name,ExplanationURL,image,caloriesBurned")] Exercise exercise)
         {
             if (ModelState.IsValid)
             {
@@ -87,7 +87,7 @@ namespace MIS421FinalProject.Views
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,ExplanationURL,image")] Exercise exercise)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,ExplanationURL,image,caloriesBurned")] Exercise exercise)
         {
             if (id != exercise.Id)
             {
