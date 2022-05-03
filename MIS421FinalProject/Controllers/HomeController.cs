@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MIS421FinalProject.Views;
+using Microsoft.AspNetCore.Identity;
+using System.Web;
 
 namespace MIS421FinalProject.Controllers
 {
@@ -16,9 +18,11 @@ namespace MIS421FinalProject.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context, UserManager<IdentityUser> userManager)
         {
+            _userManager = userManager;
             _logger = logger;
             _context = context;
         }
@@ -30,6 +34,23 @@ namespace MIS421FinalProject.Controllers
             MyVM.MyExercise = _context.MyExercise.Where(m => m.Username == User.Identity.Name).Include(m => m.Exercise).ToList();
             return View(MyVM);
             //return View();
+        }
+
+        public async Task<IActionResult> Create(string username, string password)
+        {
+            if (ModelState.IsValid)
+            {
+                _userManager.CreateAsync(new IdentityUser
+                {
+                    UserName = username,
+                    Email = username,
+                    EmailConfirmed = true
+                }, password).GetAwaiter().GetResult();
+
+                IdentityUser user = _context.Users.Where(u => u.Email == username).FirstOrDefault();
+                _userManager.AddToRoleAsync(user, SD.Admin).GetAwaiter().GetResult();
+            }
+            return View();
         }
 
         public IActionResult Privacy()
