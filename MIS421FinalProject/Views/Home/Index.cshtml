@@ -4,7 +4,7 @@
 }
 @using Microsoft.AspNetCore.Identity;
 @{
-    var curDateArray = DateTime.UtcNow.ToLocalTime().ToString("MM/dd/yyyy").Split('/');
+    var curDateArray = TimeZoneInfo.ConvertTime(DateTime.Now, TimeZoneInfo.FindSystemTimeZoneById("Central Standard Time")).ToString("MM/dd/yyyy").Split('/');
     String currentDate = int.Parse(curDateArray[0]).ToString() + '/' + int.Parse(curDateArray[1]).ToString() + '/' + int.Parse(curDateArray[2]).ToString();
 
     string getCleanDate(string date)

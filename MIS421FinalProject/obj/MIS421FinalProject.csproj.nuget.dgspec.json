@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Tristan\\Source\\Repos\\MIS421FinalProject\\MIS421FinalProject\\MIS421FinalProject.csproj": {}
+    "C:\\Users\\Hunter's computer\\Source\\Repos\\MIS421FinalProject\\MIS421FinalProject\\MIS421FinalProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Tristan\\Source\\Repos\\MIS421FinalProject\\MIS421FinalProject\\MIS421FinalProject.csproj": {
+    "C:\\Users\\Hunter's computer\\Source\\Repos\\MIS421FinalProject\\MIS421FinalProject\\MIS421FinalProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Tristan\\Source\\Repos\\MIS421FinalProject\\MIS421FinalProject\\MIS421FinalProject.csproj",
+        "projectUniqueName": "C:\\Users\\Hunter's computer\\Source\\Repos\\MIS421FinalProject\\MIS421FinalProject\\MIS421FinalProject.csproj",
         "projectName": "MIS421FinalProject",
-        "projectPath": "C:\\Users\\Tristan\\Source\\Repos\\MIS421FinalProject\\MIS421FinalProject\\MIS421FinalProject.csproj",
-        "packagesPath": "C:\\Users\\Tristan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Tristan\\Source\\Repos\\MIS421FinalProject\\MIS421FinalProject\\obj\\",
+        "projectPath": "C:\\Users\\Hunter's computer\\Source\\Repos\\MIS421FinalProject\\MIS421FinalProject\\MIS421FinalProject.csproj",
+        "packagesPath": "C:\\Users\\Hunter's computer\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Hunter's computer\\Source\\Repos\\MIS421FinalProject\\MIS421FinalProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Tristan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Hunter's computer\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
