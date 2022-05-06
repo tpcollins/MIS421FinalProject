@@ -44,26 +44,28 @@
         <h5>Total Protein: @totalProtein</h5>
         <h5>Total Carbs: @totalCarbs</h5>
         <h5>Total Fats: @totalFats</h5>
-        <a class="btn btn-dark" href="MyFoods" style="margin-top: 30px">Click Here to See More</a>
-        }
-        </div>
-        <div class='column'>
-            <h3>Exercises</h3>
+                    <a class="btn btn-dark" href="MyFoods" style="margin-top: 30px">Click Here to See More</a>
+                }
+            </div>
+            <div class='column'>
+                <h3>Exercises</h3>
                 <table id="dt" style="height: 250px">
-                <thead>
-                    <tr>
-                        <th>Exercise Name:</th>
-                        <th>Exericse Time:</th>
-                        <th>Calories Burned:</th>
-                    </tr>
-                </thead>
-                <tbody>
-                
+                    <thead>
+                        <tr>
+                            <th>Exercise Name:</th>
+                            <th>Exericse Time:</th>
+                            <th>Calories Burned:</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
                         @{
+                            int totalCaloriesBurned = 0;
                             foreach(var item in Model.MyExercise)
                             {
                                 if (currentDate == getCleanDate(item.Time.ToString()))
                                 {
+                                    totalCaloriesBurned += item.Exercise.caloriesBurned;
                                     <tr>
                                         <td>@item.Exercise.Name</td>
                                         <td>@item.Time</td>
@@ -71,13 +73,16 @@
                                     </tr>
                                 }
                             }
-                }
+                            int calorieBalance = totalCalories - totalCaloriesBurned;
+                        }
                 
                 </tbody>
                 </table>
+                <h5>Total Calories Burned: @totalCaloriesBurned</h5>
                 <a class="btn btn-dark" href="MyExercises">Click Here to See More</a>
         </div>
         </div>
+        <h4>Caloric Balance: @calorieBalance</h4>
 
 <script type='text/javascript'>
     google.charts.load('current', {'packages':['corechart']});

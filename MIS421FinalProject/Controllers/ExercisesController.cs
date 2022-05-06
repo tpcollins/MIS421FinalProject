@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -21,6 +22,7 @@ namespace MIS421FinalProject.Views
         }
 
         // GET: Exercises
+        [Authorize(Roles = SD.Admin)]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Exercise.ToListAsync());
@@ -45,6 +47,7 @@ namespace MIS421FinalProject.Views
         }
 
         // GET: Exercises/Create
+        [Authorize(Roles = SD.Admin)]
         public IActionResult Create()
         {
             return View();
@@ -55,10 +58,16 @@ namespace MIS421FinalProject.Views
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,ExplanationURL,image,caloriesBurned")] Exercise exercise)
+        public async Task<IActionResult> Create([Bind("Id,Name,ExplanationURL,caloriesBurned")] Exercise exercise, IFormFile image)
         {
             if (ModelState.IsValid)
             {
+                if(image != null && image.Length > 0)
+                {
+                    var memoryStream = new MemoryStream();
+                    await image.CopyToAsync(memoryStream);
+                    exercise.image = memoryStream.ToArray();
+                }
                 _context.Add(exercise);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
